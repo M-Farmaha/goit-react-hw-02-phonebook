@@ -1,73 +1,40 @@
 import { Component } from 'react';
-import { Section } from './Section';
-import { FeedbackOptions } from './FeedbackOptions';
-import { Statistics } from './Statistics';
-import PropTypes, { string } from 'prop-types';
+import { ContactForm } from './ContactForm';
+import { Filter } from './Filter';
+import { ContactList } from './ContactList';
 
 export class App extends Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    filter: '',
   };
 
-  handleClick = e => {
-    const value = e.currentTarget.textContent;
-    this.setState(prevState => {
-      return { [value]: prevState[value] + 1 };
-    });
+  handleContactFormSubmit = data => {
+    this.setState(prev => ({
+      contacts: prev.contacts.concat(data),
+    }));
   };
 
-  countTotalFeedback = () => {
-    const values = Object.values(this.state);
-    let total = 0;
-    for (const value of values) {
-      total += value;
-    }
-    return total;
-  };
-
-  countPositiveFeedbackPercentage = () => {
-    const good = this.state.good;
-    const all = this.countTotalFeedback();
-    if (all === 0) {
-      return 0;
-    }
-    return ((good / all) * 100).toFixed(0);
+  handleFilter = data => {
+    this.setState(data);
   };
 
   render() {
-    const {
-      state,
-      handleClick,
-      countTotalFeedback,
-      countPositiveFeedbackPercentage,
-    } = this;
+    const { state, handleContactFormSubmit, handleFilter } = this;
 
     return (
-      <Section title="Please leave feedback">
-        <FeedbackOptions options={state} onLeaveFeedback={handleClick} />
-        <Statistics
-          options={state}
-          total={countTotalFeedback}
-          positivePercentage={countPositiveFeedbackPercentage}
-        ></Statistics>
-      </Section>
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm submit={handleContactFormSubmit} />
+        <h2>Contacts</h2>
+        <Filter filter={handleFilter} />
+        <ContactList state={state} />
+      </div>
     );
   }
 }
-
-Section.propTypes = {
-  title: string,
-};
-
-FeedbackOptions.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number.isRequired),
-  onLeaveFeedback: PropTypes.func.isRequired,
-};
-
-Statistics.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number.isRequired),
-  total: PropTypes.func.isRequired,
-  positivePercentage: PropTypes.func.isRequired,
-};
