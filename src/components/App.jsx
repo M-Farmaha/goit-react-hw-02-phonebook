@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { Section } from './Section';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Statistics } from './Statistics';
-import { Extension } from './Extension';
 import PropTypes, { string } from 'prop-types';
 
 export class App extends Component {
