@@ -53,7 +53,6 @@ export class App extends Component {
           total={countTotalFeedback}
           positivePercentage={countPositiveFeedbackPercentage}
         ></Statistics>
-        <Extension options={state} />
       </Section>
     );
   }
@@ -72,8 +71,4 @@ Statistics.propTypes = {
   options: PropTypes.objectOf(PropTypes.number.isRequired),
   total: PropTypes.func.isRequired,
   positivePercentage: PropTypes.func.isRequired,
-};
-
-Extension.propTypes = {
-  options: PropTypes.objectOf(PropTypes.number.isRequired),
 };

@@ -72,10 +72,3 @@ export const StatisticPercentage = styled.p`
   margin-bottom: 10px;
   color: rgb(90, 134, 87);
 `;
-
-export const ExtentionText = styled.p`
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 200px;
-  color: #ebc444;
-`;
