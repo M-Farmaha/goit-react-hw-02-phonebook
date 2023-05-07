@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import * as Styled from './styled';
 
 export class ContactList extends Component {
   handleDelete = e => {
@@ -14,17 +15,17 @@ export class ContactList extends Component {
     );
 
     return (
-      <ul>
+      <Styled.ContactsList>
         {visibleContacts.map(contact => (
-          <li key={contact.id}>
-            <span>{contact.name}: </span>
-            <span>{contact.number}</span>
-            <button type="button" id={contact.id} onClick={handleDelete}>
+          <Styled.ContactsItem key={contact.id}>
+            <Styled.ContactName>{contact.name}: </Styled.ContactName>
+            <Styled.ContactNumber>{contact.number}</Styled.ContactNumber>
+            <Styled.Button type="button" id={contact.id} onClick={handleDelete}>
               Delete
-            </button>
-          </li>
+            </Styled.Button>
+          </Styled.ContactsItem>
         ))}
-      </ul>
+      </Styled.ContactsList>
     );
   }
 }

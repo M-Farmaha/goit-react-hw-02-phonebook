@@ -1,74 +1,101 @@
 import styled from 'styled-components';
 
-export const Section = styled.section`
+export const Section = styled.div`
   text-align: center;
   color: #000000;
-  margin-top: 30px;
-  padding: 30px;
+  padding: 20px;
 `;
 
-export const Title = styled.h2`
+export const PhonebookTitle = styled.h1`
   font-size: 40px;
   color: rgb(87, 88, 134);
 `;
 
-export const FeedbackOptions = styled.ul`
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+export const Form = styled.form`
+  margin-bottom: 60px;
+  text-align: center;
+`;
+
+export const Label = styled.label`
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 10px;
+`;
+
+export const Input = styled.input`
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
   margin-bottom: 20px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  &:focus {
+    box-shadow: rgba(100, 100, 111, 0.6) 0px 7px 29px 0px;
+  }
 `;
 
 export const Button = styled.button`
   font-size: 16px;
-  color: #000000;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: rgb(87, 88, 134);
   border-radius: 5px;
   border: none;
-  padding: 10px 20px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  text-transform: capitalize;
+  padding: 6px 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-  &:hover {
-    background-color: ${props => {
-      if (props.type === 'good') {
-        return 'lightgreen';
-      } else if (props.type === 'neutral') {
-        return 'rgb(243, 250, 114)';
-      } else if (props.type === 'bad') {
-        return 'salmon';
-      } else {
-        return '#83e8ff';
-      }
-    }};
+  &:hover,
+  &:focus {
+    background-color: #12216b;
+    color: #ffffff;
     cursor: pointer;
     transition: all 250ms linear;
-    transform: scale(1.05);
+    box-shadow: rgba(100, 100, 111, 0.6) 0px 7px 29px 0px;
   }
 `;
 
-export const StatisticTitle = styled.h3`
+export const ContactsTitle = styled.h2`
   font-size: 30px;
   color: rgb(90, 134, 87);
+  margin-bottom: 20px;
 `;
 
-export const StatisticItem = styled.p`
-  font-size: 18px;
+export const ContactsFeature = styled.h3`
+  font-size: 16px;
+  font-weight: 400;
   margin-bottom: 10px;
-  text-transform: capitalize;
 `;
 
-export const StatisticTotal = styled.p`
+export const ContactsList = styled.ul`
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+`;
+
+export const ContactsItem = styled.li`
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const ContactName = styled.span`
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 400;
+  color: rgb(87, 88, 134);
 `;
 
-export const StatisticPercentage = styled.p`
+export const ContactNumber = styled.span`
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 400;
   color: rgb(90, 134, 87);
 `;

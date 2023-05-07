@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import * as Styled from './styled';
 
 export class ContactForm extends Component {
   state = {
@@ -36,9 +37,9 @@ export class ContactForm extends Component {
     const inputNumberId = nanoid();
 
     return (
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor={inputNameId}>Name</label>
-        <input
+      <Styled.Form onSubmit={handleSubmit} autoComplete="off">
+        <Styled.Label htmlFor={inputNameId}>Name</Styled.Label>
+        <Styled.Input
           type="text"
           name="name"
           value={state.name}
@@ -48,8 +49,8 @@ export class ContactForm extends Component {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-        <label htmlFor={inputNumberId}>Number</label>
-        <input
+        <Styled.Label htmlFor={inputNumberId}>Number</Styled.Label>
+        <Styled.Input
           type="tel"
           name="number"
           value={state.number}
@@ -59,8 +60,8 @@ export class ContactForm extends Component {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <button type="submit">Add contact</button>
-      </form>
+        <Styled.Button type="submit">Add contact</Styled.Button>
+      </Styled.Form>
     );
   }
 }

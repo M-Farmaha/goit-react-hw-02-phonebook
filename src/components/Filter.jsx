@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import * as Styled from './styled';
 
 export class Filter extends Component {
   handleChange = e => {
@@ -9,8 +10,8 @@ export class Filter extends Component {
   render() {
     return (
       <>
-        <h3>Find contacts by name</h3>
-        <input type="text" name="filter" onChange={this.handleChange} />
+        <Styled.ContactsFeature>Find contacts by name</Styled.ContactsFeature>
+        <Styled.Input type="text" name="filter" onChange={this.handleChange} />
       </>
     );
   }

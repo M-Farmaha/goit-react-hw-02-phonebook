@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { ContactForm } from './ContactForm';
 import { Filter } from './Filter';
 import { ContactList } from './ContactList';
+import PropTypes from 'prop-types';
+import * as Styled from './styled';
 
 export class App extends Component {
   state = {
@@ -34,13 +36,37 @@ export class App extends Component {
     const { state, handleContactFormSubmit, handleFilter, handleDelete } = this;
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Styled.Section>
+        <Styled.PhonebookTitle>Phonebook</Styled.PhonebookTitle>
         <ContactForm submit={handleContactFormSubmit} state={state} />
-        <h2>Contacts</h2>
+        <Styled.ContactsTitle>Contacts</Styled.ContactsTitle>
         <Filter filter={handleFilter} />
         <ContactList state={state} delete={handleDelete} />
-      </div>
+      </Styled.Section>
     );
   }
 }
+
+ContactForm.propTypes = {
+  submit: PropTypes.func.isRequired,
+  state: PropTypes.shape({
+    contacts: PropTypes.arrayOf(
+      PropTypes.objectOf(PropTypes.string.isRequired)
+    ),
+    filter: PropTypes.string.isRequired,
+  }),
+};
+
+Filter.propTypes = {
+  filter: PropTypes.func.isRequired,
+};
+
+ContactList.propTypes = {
+  delete: PropTypes.func.isRequired,
+  state: PropTypes.shape({
+    contacts: PropTypes.arrayOf(
+      PropTypes.objectOf(PropTypes.string.isRequired)
+    ),
+    filter: PropTypes.string.isRequired,
+  }),
+};
