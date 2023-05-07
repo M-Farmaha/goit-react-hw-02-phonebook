@@ -20,8 +20,12 @@ export class ContactForm extends Component {
       number: this.state.number,
     };
 
-    this.props.submit(contact);
+    if (this.props.state.contacts.find(el => el.name === contact.name)) {
+      alert(`${contact.name} is already in contacts `);
+      return;
+    }
 
+    this.props.submit(contact);
     this.setState({ name: '', number: '' });
   };
 

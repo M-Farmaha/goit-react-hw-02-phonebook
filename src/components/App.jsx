@@ -15,25 +15,31 @@ export class App extends Component {
   };
 
   handleContactFormSubmit = data => {
-    this.setState(prev => ({
-      contacts: prev.contacts.concat(data),
-    }));
+    this.setState(prev => {
+      return { contacts: prev.contacts.concat(data) };
+    });
   };
 
   handleFilter = data => {
     this.setState(data);
   };
 
+  handleDelete = data => {
+    this.setState(prev => {
+      return { contacts: prev.contacts.filter(el => el.id !== data) };
+    });
+  };
+
   render() {
-    const { state, handleContactFormSubmit, handleFilter } = this;
+    const { state, handleContactFormSubmit, handleFilter, handleDelete } = this;
 
     return (
       <div>
         <h1>Phonebook</h1>
-        <ContactForm submit={handleContactFormSubmit} />
+        <ContactForm submit={handleContactFormSubmit} state={state} />
         <h2>Contacts</h2>
         <Filter filter={handleFilter} />
-        <ContactList state={state} />
+        <ContactList state={state} delete={handleDelete} />
       </div>
     );
   }
