@@ -58,44 +58,51 @@ export const Button = styled.button`
   }
 `;
 
-export const ContactsTitle = styled.h2`
+export const ContactTitle = styled.h2`
   font-size: 30px;
   color: rgb(90, 134, 87);
   margin-bottom: 20px;
 `;
 
-export const ContactsFeature = styled.h3`
+export const ContactFeature = styled.h3`
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 10px;
 `;
 
-export const ContactsList = styled.ul`
+export const ContactList = styled.ul`
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
+  width: 360px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
 `;
 
-export const ContactsItem = styled.li`
+export const ContactItem = styled.li`
   width: 100%;
   display: flex;
-  gap: 5px;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const ContactName = styled.span`
-  font-size: 20px;
+  width: 140px;
+  display: block;
+  margin-right: auto;
+  font-size: 14px;
   font-weight: 400;
   color: rgb(87, 88, 134);
+  text-align: left;
+  overflow-wrap: break-word;
 `;
 
 export const ContactNumber = styled.span`
-  font-size: 20px;
+  width: 120px;
+  margin-right: auto;
+  font-size: 14px;
   font-weight: 400;
   color: rgb(90, 134, 87);
+  text-align: left;
+  overflow-wrap: break-word;
 `;
